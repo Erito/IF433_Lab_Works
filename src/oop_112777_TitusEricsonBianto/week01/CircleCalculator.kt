@@ -11,4 +11,4 @@ fun main(){
     println(checkSize(area))
 }
 
-fun checkSize(area: Double) = if(area > 100) "This is Big Circle" else "This is Small Circle"
+fun checkSize(area: Double) = if(area > 100) "This is Big Circles" else "This is Small Circle"
