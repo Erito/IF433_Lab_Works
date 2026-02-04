@@ -6,7 +6,11 @@ fun main(){
 
     val finalPrice = DiscCalculate(price)
 
-    println("Game: $gameTitle, Harga Akhir: $finalPrice")
+    printReceipt(
+        title = gameTitle,
+        originalPrice = price,
+        finalPrice = finalPrice
+    )
 }
 
 fun DiscCalculate(price: Int): Int =
@@ -14,4 +18,11 @@ if (price > 500_000){
     (price * 0.8).toInt()
 } else{
     (price * 0.8).toInt()
+}
+
+fun printReceipt(title: String, originalPrice: Int, finalPrice: Int) {
+    println("=== SteamKW Receipt ===")
+    println("Judul Game  : $title")
+    println("Harga Asli  : Rp $originalPrice")
+    println("Harga Akhir : Rp $finalPrice")
 }
