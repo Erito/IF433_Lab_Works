@@ -1,6 +1,11 @@
 package oop_112777_TitusEricsonBianto.week02
 
-class Student(val name: String, val nim: String, var major: String){
+class Student(
+    val name: String,
+    val nim: String,
+    var gpa: Double = 0.0, // <-- Default Argument
+    var major: String
+){
     init{
         if(nim.length != 5){
             println("WARNING: Objek tercipta dengan nim ($nim) yang tidak valid")
@@ -11,6 +16,6 @@ class Student(val name: String, val nim: String, var major: String){
     }
 
     constructor(name: String, nim: String) : this(name, nim, "Non-Matriculated"){
-        println("LOG: Menggunakan constructor jalur umum(tanpa jurusan")
+        println("LOG: Menggunakan constructor jalur umum(tanpa jurusan)")
     }
 }
