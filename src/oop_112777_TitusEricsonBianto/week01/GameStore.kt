@@ -28,5 +28,5 @@ fun printReceipt(title: String, originalPrice: Int, finalPrice: Int, note: Strin
     println("Harga Akhir : Rp $finalPrice")
 
     val notePrint = note ?: "Tidak ada Catatan"
-    println("Catatam     : $notePrint")
+    println("Catatan     : $notePrint")
 }
