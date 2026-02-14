@@ -12,9 +12,8 @@ fun main(){
     print("Masukan NIM (Wajib 5 karakter): ")
     val nim = scanner.nextLine()
 
-    scanner.nextLine() //Bersihkan buffer newline (penyakit klasik Scanner)
 
-    print("Pilih Jalur (1. Reguler, 2. Umum: )")
+    print("Pilih Jalur (1. Reguler, 2. Umum): ")
     val type = scanner.nextInt()
     scanner.nextLine()
 
