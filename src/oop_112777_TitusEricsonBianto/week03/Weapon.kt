@@ -2,8 +2,7 @@ package oop_112777_TitusEricsonBianto.week03
 
 class Weapon(
     val name: String,
-    damage: Int,
-    tier: String
+    damage: Int
 )
 {
     var damage: Int = 0

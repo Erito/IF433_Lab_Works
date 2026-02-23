@@ -9,4 +9,12 @@ fun main() {
 
     e.increasePerformance()
     println("Pajak yang harus dibayar ${e.tax}")
+    println("\n\n\n")
+
+
+
+    val w = Weapon("Titus", 5)
+    w.damage = -50
+    println("Damagenya itu adalah ${w.damage}")
+
 }
