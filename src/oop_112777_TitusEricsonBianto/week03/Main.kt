@@ -4,9 +4,9 @@ fun main() {
     val e = Employee("Titus")
     println("SIP")
     e.salary = -5
-    e.salary = 5000000 // 5juta
+    e.salary = 5000000
     println("Gaji: ${e.salary}")
 
     e.increasePerformance()
-    println("Pajak yang harus dibayar ${e.tax}") // 500.000
+    println("Pajak yang harus dibayar ${e.tax}")
 }
