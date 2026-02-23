@@ -9,12 +9,19 @@ fun main() {
 
     e.increasePerformance()
     println("Pajak yang harus dibayar ${e.tax}")
-    println("\n\n\n")
+    println("\n\n")
 
 
 
     val w = Weapon("Titus", 5)
     w.damage = -50
     println("Damagenya itu adalah ${w.damage}")
+    println("\n\n")
+
+    val p = Player("Titus")
+    // p.xp // error karena xp private
+    p.addXp(50)
+    p.addXp(60)
+
 
 }
