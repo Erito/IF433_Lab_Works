@@ -1,9 +1,13 @@
 package oop_112777_TitusEricsonBianto.week03
 
-class Employee {
+class Employee(val name: String) {
     var salary: Int = 0
         set(value){
-            println("Mencoba set gaji ke: $value")
-            this.salary = 5000
+            if (value < 0){
+                println("ERROR: Gaji gaboleh negatif! sehingga set jadi 0")
+                field = value
+            } else{
+                field = value
+            }
         }
 }
