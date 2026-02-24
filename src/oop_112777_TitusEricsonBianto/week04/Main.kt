@@ -16,4 +16,14 @@ fun main(){
     val el = ElectricCar("Tesla", 4, 20)
     el.openTrunk()
     el.accelerate()
+
+    println("\n---Testing Employee---")
+    val m = Manager("Titus", 100000)
+    val d = Developer("Eufrat", 500000, "C")
+    m.work()
+    d.work()
+    d.calculateBonus()
+    println("Ini salarynya: ${m.calculateBonus()}")
+    println("Ini salarynya: ${d.calculateBonus()}")
+
 }
