@@ -21,7 +21,7 @@ fun main(){
         println("====================================")
     }
 
-    println("=============TUGAS=================")
+    println("=============TUGAS 1=================")
 
 
 
@@ -33,4 +33,27 @@ fun main(){
     println("Luas Persegi (sisi = 5): $luasPersegi")
     println("Luas Persegi Panjang (panjang = 4, lebar = 6): $luasPersegiPanjang")
     println("Luas Lingkaran (jari-jari = 7.0): $luasLingkaran")
+
+
+
+    println("============TUGAS 2============")
+    val eWallet = EWallet("MyOvo", 50000.0)
+    val creditCard = CreditCard("BCA Card", 100000.0)
+    val paymentList: List<PaymentMethod> = listOf(eWallet, creditCard)
+
+    println("=== Memproses Pembayaran Awal (Rp 75,000) ===")
+    for (payment in paymentList) {
+        payment.processPayment(75000.0)
+
+        if (payment is EWallet) {
+            println("--> Sistem mendeteksi EWallet gagal transaksi. Melakukan Auto Top-Up...")
+            // Karena operator 'is', Kotlin otomatis melakukan "Smart Cast" dari
+            // PaymentMethod menjadi EWallet, sehingga kita bisa memanggil fungsi topUp()
+            payment.topUp(50000.0)
+
+            println("--> Mencoba ulang pembayaran...")
+            payment.processPayment(75000.0)
+        }
+        println("--------------------------------------------------")
+    }
 }
