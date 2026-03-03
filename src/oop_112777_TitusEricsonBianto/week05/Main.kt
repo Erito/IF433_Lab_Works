@@ -44,13 +44,9 @@ fun main(){
     println("=== Memproses Pembayaran Awal (Rp 75,000) ===")
     for (payment in paymentList) {
         payment.processPayment(75000.0)
-
         if (payment is EWallet) {
             println("--> Sistem mendeteksi EWallet gagal transaksi. Melakukan Auto Top-Up...")
-            // Karena operator 'is', Kotlin otomatis melakukan "Smart Cast" dari
-            // PaymentMethod menjadi EWallet, sehingga kita bisa memanggil fungsi topUp()
             payment.topUp(50000.0)
-
             println("--> Mencoba ulang pembayaran...")
             payment.processPayment(75000.0)
         }
