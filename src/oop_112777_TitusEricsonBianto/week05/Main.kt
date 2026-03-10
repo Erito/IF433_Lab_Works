@@ -37,19 +37,24 @@ fun main(){
 
 
     println("============TUGAS 2============")
-    val eWallet = EWallet("MyOvo", 50000.0)
-    val creditCard = CreditCard("BCA Card", 100000.0)
-    val paymentList: List<PaymentMethod> = listOf(eWallet, creditCard)
+    val myEWallet = EWallet("Dompet Digital", 50000.0)
+    val myCreditCard = CreditCard("BCA Card", 100000.0)
+    val paymentList: List<PaymentMethod> = listOf(myEWallet, myCreditCard)
 
-    println("=== Memproses Pembayaran Awal (Rp 75,000) ===")
+    val targetPayment = 75000.0
+    println("=== Memulai Eksekusi Pembayaran ===")
     for (payment in paymentList) {
-        payment.processPayment(75000.0)
+        println("\n--> Mencoba membayar Rp$targetPayment menggunakan ${payment.accountName}")
+        payment.processPayment(targetPayment)
         if (payment is EWallet) {
-            println("--> Sistem mendeteksi EWallet gagal transaksi. Melakukan Auto Top-Up...")
-            payment.topUp(50000.0)
-            println("--> Mencoba ulang pembayaran...")
-            payment.processPayment(75000.0)
+            println("[Sistem] Mendeteksi metode EWallet. Memeriksa saldo...")
+            if (payment.balance < targetPayment) {
+                println("[Sistem] Auto Top-Up otomatis sebesar Rp50000.0 berjalan...")
+                payment.topUp(50000.0)
+
+                println("[Sistem] Mencoba memproses pembayaran kembali...")
+                payment.processPayment(targetPayment)
+            }
         }
-        println("--------------------------------------------------")
     }
 }
