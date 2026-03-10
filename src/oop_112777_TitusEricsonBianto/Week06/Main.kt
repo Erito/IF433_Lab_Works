@@ -23,6 +23,10 @@ fun main(){
     val button = Button("Start")
     button.click()
 
+    println("\n=======TUGAS========\n")
+    val SL = SmartLamp("Satu", "Ruang Tamu")
+    val SS = SmartSpeaker("Dua","Google Nest Dapur")
+    val SC = SmartCCTV("Tiga", "Ezviz Garasi")
 
 
 }
