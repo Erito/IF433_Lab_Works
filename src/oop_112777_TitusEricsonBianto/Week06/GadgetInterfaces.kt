@@ -6,7 +6,7 @@ interface Camera{
     }
 }
 
-interface Phonne{
+interface Phone{
     fun turnOff(){
         println("Sinyal seluler mencari jaringan.")
     }
