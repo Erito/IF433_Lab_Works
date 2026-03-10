@@ -24,9 +24,15 @@ fun main(){
     button.click()
 
     println("\n=======TUGAS========\n")
-    val SL = SmartLamp("Satu", "Ruang Tamu")
-    val SS = SmartSpeaker("Dua","Google Nest Dapur")
-    val SC = SmartCCTV("Tiga", "Ezviz Garasi")
+    val lamp = SmartLamp("Satu", "Ruang Tamu")
+    val speaker = SmartSpeaker("Dua", "Google Nest Dapur")
+    val cctv = SmartCCTV("Tiga", "Ezviz Garasi")
 
+    val hub = SmartHomeHub()
+    hub.addDevice(lamp)
+    hub.addDevice(speaker)
+    hub.addDevice(cctv)
 
+    hub.activateSecurityMode()
+    hub.turnOffAllSwitches()
 }
