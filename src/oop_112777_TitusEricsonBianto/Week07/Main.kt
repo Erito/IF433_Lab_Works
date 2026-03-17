@@ -41,4 +41,25 @@ fun main() {
     }
 
     println(uiMessage)
+
+
+    // Simulasi Poin 7: Test Singleton
+    println("=== SIMULASI GAME START ===")
+    GameManager.startGame()
+    GameManager.startGame() // Pemanggilan kedua untuk tes duplikasi
+
+    println("\n=== SIMULASI EVENT ===")
+    // Membuat senjata untuk loot
+    val epicSword = Weapon.forgeEpicSword()
+
+    // Daftar kejadian game
+    val gameTimeline = listOf(
+        BattleState.SafeZone,
+        BattleState.MonsterEncounter("Dragon Lord"),
+        BattleState.LootDropped(epicSword.item),
+        BattleState.GameOver("Misi Selesai dengan Kemenangan!")
+    )
+
+    // Eksekusi semua event
+    gameTimeline.forEach { processEvent(it) }
 }
