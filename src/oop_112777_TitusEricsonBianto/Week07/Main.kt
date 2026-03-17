@@ -15,4 +15,11 @@ fun main() {
 
     println(reg1) // Akan mencetak alamat memori (hash code), bukan data
     println("Sama? ${reg1 == reg2}") // Akan menghasilkan False karena alamat memori berbeda
+
+    println("\n=== TEST DATA CLASS ===")
+    val data1 = DataUser("Alice", 22)
+    val data2 = DataUser("Alice", 22)
+
+    println(data1) // Otomatis readable format: DataUser(name=Alice, age=22)
+    println("Sama? ${data1 == data2}") // True (Structural Equality) karena isinya sama
 }
