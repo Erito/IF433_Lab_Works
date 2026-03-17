@@ -26,14 +26,12 @@ fun main() {
     val data3 = data1.copy(age = 23)
     println("Hasil Copy: $data3")
 
-    val (userName, userAge) = data1 // Destructuring Declaration
+    val (userName, userAge) = data1
     println("Destructured: $userName berumur $userAge")
 
     println("\n=== TEST SEALED CLASS ===")
     val response: ApiResponse = ApiResponse.Success("Data berhasil ditarik!")
 
-    // ERROR: 'when' expression must be exhaustive
-    // Kamu akan melihat garis merah di 'when' karena ApiResponse.Loading belum ditangani
     val uiMessage = when(response) {
         is ApiResponse.Success -> "Tampilkan: ${response.data}"
         is ApiResponse.Error -> "Munculkan alert: ${response.message}"
@@ -41,18 +39,11 @@ fun main() {
     }
 
     println(uiMessage)
-
-
-    // Simulasi Poin 7: Test Singleton
-    println("=== SIMULASI GAME START ===")
     GameManager.startGame()
-    GameManager.startGame() // Pemanggilan kedua untuk tes duplikasi
+    GameManager.startGame()
 
-    println("\n=== SIMULASI EVENT ===")
-    // Membuat senjata untuk loot
     val epicSword = Weapon.forgeEpicSword()
 
-    // Daftar kejadian game
     val gameTimeline = listOf(
         BattleState.SafeZone,
         BattleState.MonsterEncounter("Dragon Lord"),
@@ -60,6 +51,11 @@ fun main() {
         BattleState.GameOver("Misi Selesai dengan Kemenangan!")
     )
 
-    // Eksekusi semua event
     gameTimeline.forEach { processEvent(it) }
+
+    println("\n=== INFO RARITY ===")
+    println("Drop Chance Legendary: ${ItemRarity.LEGENDARY.dropChance}%")
+
+    val starterWeapon = Weapon.forgeStarterSword()
+    println("Senjata Awal: ${starterWeapon.item.name}, Damage: ${starterWeapon.item.damage}, Rarity: ${starterWeapon.item.rarity}")
 }
