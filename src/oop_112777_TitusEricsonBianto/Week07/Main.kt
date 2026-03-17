@@ -22,4 +22,10 @@ fun main() {
 
     println(data1) // Otomatis readable format: DataUser(name=Alice, age=22)
     println("Sama? ${data1 == data2}") // True (Structural Equality) karena isinya sama
+
+    val data3 = data1.copy(age = 23)
+    println("Hasil Copy: $data3")
+
+    val (userName, userAge) = data1 // Destructuring Declaration
+    println("Destructured: $userName berumur $userAge")
 }
