@@ -58,4 +58,14 @@ fun main() {
 
     val starterWeapon = Weapon.forgeStarterSword()
     println("Senjata Awal: ${starterWeapon.item.name}, Damage: ${starterWeapon.item.damage}, Rarity: ${starterWeapon.item.rarity}")
+
+    println("\n=== UPGRADE DI BLACKSMITH ===")
+    val upgradedItem = starterWeapon.item.copy(name = "Pedang Kayu Tajam", damage = 25)
+    println("Senjata setelah upgrade: ${upgradedItem.name}, Damage baru: ${upgradedItem.damage}")
+
+    println("\n=== SIMULASI PERJALANAN ===")
+    processEvent(BattleState.SafeZone)
+    processEvent(BattleState.MonsterEncounter("Goblin Nakal"))
+    processEvent(BattleState.LootDropped(upgradedItem))
+    processEvent(BattleState.GameOver("Terkena jebakan racun"))
 }
