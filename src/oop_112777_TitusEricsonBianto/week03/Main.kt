@@ -14,13 +14,14 @@ fun main() {
 
 
     val w = Weapon("Titus", 5)
-    w.damage = -50
+    w.damage = 600
     println("Damagenya itu adalah ${w.damage}")
-    println("\n\n")
+    println("Tiernya adalah: ${w.tier}")
+    println("\n")
 
     val p = Player("Titus")
     // p.xp // error karena xp private
-    p.addXp(50)
+    p.addXp(200)
     p.addXp(60)
 
 
