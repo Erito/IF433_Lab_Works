@@ -20,4 +20,8 @@ class ApiParser {
             }
         }
     }
+
+    fun checkout(product: Product){
+
+    }
 }
