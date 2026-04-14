@@ -23,14 +23,12 @@ fun main(){
         4500000.0
     )
 
-//    // Langkah 2: Filter dengan as? (Checkpoint 7)
-//    for (item in mixedData) {
-//        val text = item as? String
-//        // Hanya cetak jika cast sukses (text tidak null)
-//        text?.let {
-//            println("Ditemukan teks: ${it.uppercase()}")
-//        }
-//    }
+    for (item in mixedData) {
+        val text = item as? String
+        text?.let {
+            println("Ditemukan teks: ${it.uppercase()}")
+        }
+    }
 //
 //    // Langkah 3: Safe Cast + Elvis Fallback (Checkpoint 8 & 9)
 //    val someObject: Any = 100 // Tipe aslinya Integer
