@@ -19,6 +19,6 @@ fun main() {
         } catch (e: IllegalArgumentException) {
             println("-> ERROR DITANGKAP: ${e.message}")
         }
-        println("----------------------TEB-------------------------")
+        println("---------------------TEB------------------------")
     }
 }
