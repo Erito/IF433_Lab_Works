@@ -7,7 +7,7 @@ fun main() {
         TradeLog("ETHUSDT", "SHORT", 10, -5.2, "CLOSED"),
         TradeLog("SOLUSDT", "LONG", 5, 2.0, "OPEN"),
         TradeLog("BTCUSDT", "SHORT", 50, -10.0, "CLOSED"),
-        TradeLog("BNBUSDT", "LONG", 10, 8.4, "CLOSED"),
+        TradeLog("BNBUdSDT", "LONG", 10, 8.4, "CLOSED"),
         TradeLog("XRPUSDT", "SHORT", 20, 0.0, "CLOSED")
     )
 
