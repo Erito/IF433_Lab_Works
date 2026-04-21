@@ -1,7 +1,7 @@
 package oop_112777_TitusEricsonBianto.Week09
 
 fun main() {
-    // 2. Inisialisasi Data Ujis
+    // 2. Inisialisasi Data Ujiss
     val tradeHistory = listOf(
         TradeLog("BTCUSDT", "LONG", 20, 15.5, "CLOSED"),
         TradeLog("ETHUSDT", "SHORT", 10, -5.2, "CLOSED"),
