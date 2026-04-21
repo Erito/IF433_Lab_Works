@@ -11,7 +11,7 @@ fun main() {
     val scores: MutableList<Int> = mutableListOf(85, 90)
     scores.add(95)
     scores[0] = 88
-    println("Mutable List: $scores")
+    println("Mutable Lisst: $scores")
 
     println("\n=== TEST SET ===")
     val uniqueNumbers = setOf(1, 2, 2, 3, 3, 4)
