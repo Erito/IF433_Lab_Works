@@ -1,6 +1,5 @@
 package oop_112777_TitusEricsonBianto.Week09
 
-
 fun main() {
     val numbers = listOf(1, 2, 3, 4, 5, 6, 7, 8)
     println("Original Data: $numbers")
