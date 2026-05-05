@@ -12,9 +12,20 @@ fun String.RubahHurudBesarDepan():String{
     return hasil
 }
 
-fun main(){
+fun String.tentukanKelulusan(Nilai:Int):String{
+    var Hasil = ""
+    if(Nilai > 70){
+        Hasil = "Lulus"
+    } else{
+        Hasil = "Ga llus"
+    }
+    return Hasil
+}
 
-    println("Ya ".repeat(100))
+fun main(){
+    println("Grade Kamu ".tentukanKelulusan(71))
+
+    println("Ya ".repeat(5))
     println("HI".DasarExtenson())
 
 
