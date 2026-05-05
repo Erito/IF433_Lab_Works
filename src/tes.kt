@@ -33,6 +33,11 @@ fun String?.CekNulldanEmpty():String{
     return hasil
 }
 
+data class Manusia(var nama:String, var umur:Int)
+//class Manusia(){
+//    var nama:String = ""
+//    var umur:Int = 0
+//}
 
 fun main(){
     var passwordKamu:String? = "09452"
@@ -50,4 +55,44 @@ fun main(){
 
     //dengan extension function
     println("budi kurniawan".RubahHurudBesarDepan())
+
+    var huruf:String = "UMN"
+    val hasilKampus = huruf.let{
+        if(it == "UMN "){
+            println("Kampus saya")
+        } else {
+            println("Bukan Kampus saya")
+        }
+    }
+    println(hasilKampus)
+
+
+    var nilaiKamu = 70.run {
+        if(this >= 70){
+            println("Lulus")
+        } else{
+            println("Ga Lulus")
+        }
+    }
+
+    val pekerjaan = with("Mahasiswa"){
+        if(this == "Mahasiswa"){
+            println("Pelajar")
+        } else{
+            println("Pekerja")
+        }
+    }
+
+    val orang = Manusia("Titus", 50).apply{
+        nama = "Budi"
+        umur = 20
+    }
+    println("Nama kamu ${orang.nama} umur kamu ${orang.umur}")
+
+    var deretAngka = mutableListOf<Int>(1, 2, 3, 4)
+    deretAngka.also{
+        println("Sebelum $deretAngka")
+    }.add(5)
+    println("Setelah $deretAngka")
+
 }
