@@ -19,11 +19,11 @@ fun String.tentukanKelulusan(Nilai:Int):String{
     } else{
         Hasil = "Ga llus"
     }
-    return Hasil
+    return this + " " + Hasil
 }
 
 fun main(){
-    println("Grade Kamu ".tentukanKelulusan(71))
+    println("Grade Kamu".tentukanKelulusan(71))
 
     println("Ya ".repeat(5))
     println("HI".DasarExtenson())
