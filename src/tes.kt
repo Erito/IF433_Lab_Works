@@ -13,6 +13,8 @@ fun String.RubahHurudBesarDepan():String{
 }
 
 fun main(){
+
+    println("Ya ".repeat(100))
     println("HI".DasarExtenson())
 
 
