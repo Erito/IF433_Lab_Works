@@ -22,7 +22,22 @@ fun String.tentukanKelulusan(Nilai:Int):String{
     return this + " " + Hasil
 }
 
+fun String?.CekNulldanEmpty():String{
+    var hasil = ""
+    if(this == null || this.isEmpty()) {
+        hasil = "Ga boleh null atau Empty"
+    } else{
+        hasil = "Password kamu: $this"
+    }
+
+    return hasil
+}
+
+
 fun main(){
+    var passwordKamu:String? = "09452"
+    println(passwordKamu.CekNulldanEmpty())
+
     println("Grade Kamu".tentukanKelulusan(71))
 
     println("Ya ".repeat(5))
