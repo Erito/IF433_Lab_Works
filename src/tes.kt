@@ -1,98 +1,98 @@
-fun String.DasarExtenson():String{
-    return "Halo $this"
+
+fun pembagian(){
+    try{
+        val a = 10
+        val b = 5
+        val hasil = a/b
+        println("Hasil bagi: $hasil")
+    }catch(e: Exception){
+        println("Ada Error:  " + e.message)
+    }finally {
+        println("Selesai try catch")
+    }
 }
 
-fun String.RubahHurudBesarDepan():String{
-    var hasil = ""
-    hasil = this.split(" ").joinToString(" "){
-        it.replaceFirstChar {
-            c -> c.uppercase()
+fun cek_tipe_variable(){
+    var angka:Int = try {
+        Integer.parseInt("123")
+    }catch (e: Exception){
+        println("ada Error:  " + e.message)
+        6767
+    }
+    println(angka)
+}
+
+fun cek_nilai(nilai:Int){
+    if(nilai<0){
+        throw IllegalArgumentException("Masa Nilai minus")
+    } else if(nilai > 100){
+        println("Masa Nilai lebih besar dari 100")
+    } else{
+        println("Nilai kamu adalah " + nilai)
+    }
+}
+
+class cek_saldo_rekening(val pengeluaran: Int, val saldo:Int ):
+    Exception("Saldo kamu sisa $saldo dan pengeluaran: $pengeluaran")
+class transaksi_keuangan(){
+    fun narik_uang(balance:Int, totalBelanja:Int){
+        if(totalBelanja> balance){
+            try{
+                throw cek_saldo_rekening(totalBelanja, balance)
+            } catch (e:Exception){
+                println(e.message)
+            }
+        } else{
+            println("Transaksi berhasil, sisa saldo ${balance - totalBelanja}")
         }
     }
-    return hasil
 }
 
-fun String.tentukanKelulusan(Nilai:Int):String{
-    var Hasil = ""
-    if(Nilai > 70){
-        Hasil = "Lulus"
-    } else{
-        Hasil = "Ga llus"
+fun multiple_catch(input:String){
+    try{
+        val angka:Int = input.toInt()
+        val hitungBagi: Int = angka/0
+        println("Hasil bagi $hitungBagi")
+    } catch(e: NumberFormatException){
+        println("GBISA BAGI HURUF " + e.message)
+    } catch(e: ArithmeticException){
+        println("Masa pembagian pake 0: ${e.message}")
+    } catch (e:Exception){
+        println("Ada errpr di multiple catch: ${e.message}")
     }
-    return this + " " + Hasil
 }
 
-fun String?.CekNulldanEmpty():String{
-    var hasil = ""
-    if(this == null || this.isEmpty()) {
-        hasil = "Ga boleh null atau Empty"
-    } else{
-        hasil = "Password kamu: $this"
+sealed class BankException(pesan:String): Exception("Error di Bank EXCEPTION " + pesan)
+class cek_saldo(val pengeluaran:Int): BankException("Pengeluaran kamu $pengeluaran dari saldo")
+class cek_input(val transaksi:Int): BankException("Transaksi kamu masa minus $transaksi")
+
+fun transaksi_belanja(saldoKamu: Int, jajanKamu: Int):Int{
+    if(jajanKamu < 0){
+        throw cek_input(jajanKamu)
+    } else if(saldoKamu < jajanKamu){
+        throw cek_saldo(jajanKamu)
     }
-
-    return hasil
+    return saldoKamu - jajanKamu
 }
-
-data class Manusia(var nama:String, var umur:Int)
-//class Manusia(){
-//    var nama:String = ""
-//    var umur:Int = 0
-//}
 
 fun main(){
-    var passwordKamu:String? = "09452"
-    println(passwordKamu.CekNulldanEmpty())
+    println("Testing dulu")
+    pembagian()
+    cek_tipe_variable()
 
-    println("Grade Kamu".tentukanKelulusan(71))
-
-    println("Ya ".repeat(5))
-    println("HI".DasarExtenson())
-
-
-    //Tanpa extension func
-    val nama1 = "Budi Sihombing"
-    println(nama1.uppercase())
-
-    //dengan extension function
-    println("budi kurniawan".RubahHurudBesarDepan())
-
-    var huruf:String = "UMN"
-    val hasilKampus = huruf.let{
-        if(it == "UMN "){
-            println("Kampus saya")
-        } else {
-            println("Bukan Kampus saya")
-        }
-    }
-    println(hasilKampus)
-
-
-    var nilaiKamu = 70.run {
-        if(this >= 70){
-            println("Lulus")
-        } else{
-            println("Ga Lulus")
-        }
+    try {
+        cek_nilai(101)
+    } catch(e:Exception){
+        println("Wow ada error di niai: " + e.message)
     }
 
-    val pekerjaan = with("Mahasiswa"){
-        if(this == "Mahasiswa"){
-            println("Pelajar")
-        } else{
-            println("Pekerja")
-        }
-    }
+    val trx = transaksi_keuangan()
+    trx.narik_uang(1200, 1000)
 
-    val orang = Manusia("Titus", 50).apply{
-        nama = "Budi"
-        umur = 20
-    }
-    println("Nama kamu ${orang.nama} umur kamu ${orang.umur}")
+    multiple_catch("as^d")
+    println("")
 
-    var deretAngka = mutableListOf<Int>(1, 2, 3, 4)
-    deretAngka.also{
-        println("Sebelum $deretAngka")
-    }.add(5)
-    println("Setelah $deretAngka")
-
+    runCatching {
+        transaksi_belanja(1000, 1200)
+    }.onSuccess {println("Belanja Berhasil , sisa saldo: $it")}.onFailure {println(it)}
 }
