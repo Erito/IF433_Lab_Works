@@ -33,5 +33,14 @@ fun main() {
     } finally {
         println("Siklus pengecekan dispenser pagi selesai.\n")
     }
+
+    println("=== JADWAL MAKAN 2 (SORE) ===")
+    val result = runCatching {
+        dispenseKibble(
+            requestedGram = 30,
+            availableGram = 1000,
+            isJammed = false
+        )
+    }
 }
 
