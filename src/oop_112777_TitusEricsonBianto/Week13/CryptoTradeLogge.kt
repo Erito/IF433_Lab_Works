@@ -46,6 +46,10 @@ fun main() {
         TradeRecord(1, "BTCUSDT", "Long", 1000.0, 150.5),
         TradeRecord(2, "ETHUSDT", "Short", 500.0, -20.0)
     )
+    val loadedData = loadTrades("crypto_trades.csv")
+    val totalPnl = loadedData.sumOf { it.pnl }
     saveTrades(myTrades, "crypto_trades.csv")
-    File("crypto_trades.csv").appendText("CORRUPT_ID,DOGEUSDT,Hold,XX,YY\n")
+    println("=== RIWAYAT TRANSAKSI VALID ===")
+    loadedData.forEach { println(it) }
+    println("==== TOTAL PnL BERSIH: $totalPnl ====")
 }
