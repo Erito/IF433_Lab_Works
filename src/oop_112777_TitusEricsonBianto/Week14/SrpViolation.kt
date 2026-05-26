@@ -1,17 +1,15 @@
 package oop_112777_TitusEricsonBianto.Week14
 
-// Extension function dengan receiver 'this'
-fun String.addGreeting(): String {
-    return "Hello, $this"
-}
+data class User(val name: String, val email: String, val age: Int)
 
-// Extension function dengan parameter
-fun String.repeatTimes(n: Int): String {
-    return this.repeat(n)
-}
-
-// Extension function pada tipe nullable
-fun String?.isNullOrEmptyCustom(): Boolean {
-    // 'this' bisa bernilai null, jadi harus ditangani
-    return this == null || this.isEmpty()
+class UserManager {
+    fun validateUser(user: User): Boolean {
+        return user.email.contains("@") && user.age >= 18
+    }
+    fun saveUserToDatabase(user: User) {
+        println("INSERT INTO users VALUES ('${user.name}', '${user.email}')")
+    }
+    fun sendWelcomeEmail(user: User) {
+        println("Sending email to: ${user.email}")
+    }
 }
