@@ -28,7 +28,7 @@ class kurikulum_2013 : jenis_kurikulum {
         return (uts * 0.3) + (uas * 0.4) + (tugas * 0.3)
     }
 }
-
+//tes
 class kurikulum_merdeka : jenis_kurikulum {
     override fun hitung_nilai_bobot(uts: Double, uas: Double, tugas: Double): Double {
         return (uts * 0.2) + (uas * 0.5) + (tugas * 0.3)
